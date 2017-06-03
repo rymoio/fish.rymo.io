@@ -1,0 +1,34 @@
+---
+layout: splash
+header:
+  overlay_color: "#34495e"
+  overlay_filter: "rgba(0,0,0,0.2)"
+  overlay_image: /assets/images/splash1.jpeg
+  cta_label: "Read my posts"
+  cta_url: "/posts/"
+  caption: "Photo: Eleven Mile Canyon, CO"
+excerpt: "A Colorado fly fishing blog updated not all that frequently. Read posts about my fishing trips and fly tying tips. Enjoy."
+---
+<div>
+	<div class="feature__item--center">
+		<div class="">
+			<h3 class="archive__subtitle">Latest Post</h3>
+			{% for post in site.posts limit:1 %}
+			<article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+				<h2 class="archive__item-title" itemprop="headline">
+					<a href="{{ post.url | absolute_url }}" rel="permalink">{{ post.title }}</a>
+				</h2>
+				{% if post.read_time %}
+				<p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
+				{% endif %}
+				<div class="archive__item-excerpt lead">
+					{{ post.content | strip_html | truncatewords:75 }}
+				</div>
+				<p class="archive__item-excerpt-continue">
+					<a href="{{ post.url | absolute_url }}" class="btn">continue reading {% icon fa-chevron-right %}</a>
+				</p>
+			</article>
+			{% endfor %}
+		</div>
+	</div>
+</div>

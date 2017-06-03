@@ -1,0 +1,9 @@
+# A template for gear pages
+---
+title: gear
+excerpt: 
+header:
+  overlay_image: 
+  caption: 
+layout: gear
+---

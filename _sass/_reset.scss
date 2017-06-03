@@ -1,0 +1,11 @@
+/* Selected elements */
+
+::-moz-selection {
+    color: white;
+    background: $flat-peter-river;
+}
+
+::selection {
+    color: white;
+    background: $flat-peter-river;
+}

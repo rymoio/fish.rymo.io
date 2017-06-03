@@ -1,0 +1,59 @@
+{% if page.header.image contains "://" or page.layout == "trips" %}
+  {% capture img_path %}{{ page.header.image | liquify }}{% endcapture %}
+{% else %}
+  {% capture img_path %}{{ page.header.image | liquify | absolute_url }}{% endcapture %}
+{% endif %}
+
+{% if page.header.cta_url contains "://" %}
+  {% capture cta_path %}{{ page.header.cta_url | liquify }}{% endcapture %}
+{% else %}
+  {% capture cta_path %}{{ page.header.cta_url | liquify | absolute_url }}{% endcapture %}
+{% endif %}
+
+{% if page.location.latitude and page.location.longitude and page.layout == "trips" %}
+  <!-- {% capture overlay_img_path %}{{ page.header.overlay_image | liquify }}{% endcapture %} -->
+  {% capture overlay_img_path %}https://api.mapbox.com/styles/v1/mapbox/satellite-hybrid-v8/static/{{ page.location.longitude }},{{ page.location.latitude }},{{ page.location.zoom | default:16.5 }},0/1280x400@2x?access_token={{ site.env.MAPBOX_API_KEY }}&attribution=false&logo=false{% endcapture %}
+{% elsif page.header.overlay_image contains "://" %}
+  {% capture overlay_img_path %}{{ page.header.overlay_image }}{% endcapture %}
+{% elsif page.header.overlay_image %}
+  {% capture overlay_img_path %}{{ page.header.overlay_image | absolute_url }}{% endcapture %}
+{% endif %}
+
+{% if page.header.overlay_filter contains "rgba" %}
+  {% capture overlay_filter %}{{ page.header.overlay_filter }}{% endcapture %}
+{% elsif page.header.overlay_filter %}
+  {% capture overlay_filter %}rgba(0, 0, 0, {{ page.header.overlay_filter }}){% endcapture %}
+{% endif %}
+
+<div class="page__hero{% if page.header.overlay_color or page.header.overlay_image or page.layout == "trips" %}--overlay{% endif %}"
+  style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if overlay_img_path %}background-image: {% if overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}), {% endif %}url('{{ overlay_img_path }}');{% endif %}"
+>
+  {% if page.header.overlay_color or page.header.overlay_image or page.layout == "trips" %}
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        {% if paginator and site.paginate_show_page_num %}
+          {{ site.title }}{% unless paginator.page == 1 %} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}
+        {% else %}
+          {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
+        {% endif %}
+      </h1>
+      {% if page.excerpt %}
+        <p class="page__lead">{{ page.excerpt | strip_html | normalize_whitespace | truncate: 250 | remove: "<p>" | remove: "</p>" | escape }}</p>
+      {% endif %}
+      {% if site.read_time and page.read_time %}
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
+      {% endif %}
+      {% if page.header.cta_url %}
+        <p><a href="{{ cta_path }}" class="btn btn--light-outline btn--large">{{ page.header.cta_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
+      {% endif %}
+    </div>
+  {% else %}
+    <img src="{{ img_path }}" alt="{{ page.title }}" class="page__hero-image">
+  {% endif %}
+  {% if page.header.caption and page.layout == "trips" %}
+    {% capture mapbox_caption %}&copy; [Mapbox](https://www.mapbox.com/map-feedback/) &copy; [OpenStreetMap contributors](http://www.openstreetmap.org/copyright){% endcapture %}
+    <span class="page__hero-caption">{{ mapbox_caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+  {% elsif page.header.caption %}
+    <span class="page__hero-caption">{{ page.header.caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+  {% endif %}
+</div>

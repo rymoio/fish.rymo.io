@@ -1,0 +1,10 @@
+@mixin first-letter-drop-case {
+    color: $flat-peter-river;
+    float: left;
+    font-family: $serif;
+    font-size: 7rem;
+    line-height: 5rem;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
+}

@@ -1,0 +1,13 @@
+main:
+  - title: "Recent Posts"
+    url: /posts/
+    icon: fa-clock-o
+  - title: "Fishing Trips"
+    url: /fishing-trips/
+    icon: fa-car
+  - title: "Fly Tying"
+    url: /fly-tying/
+    icon: fa-bug
+  - title: "My Gear"
+    url: /gear/
+    icon: fa-gear

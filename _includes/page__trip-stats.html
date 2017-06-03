@@ -1,0 +1,29 @@
+<div class="sidebar sticky trip-stats">
+    {% if page.location %}
+    <h6>{% icon fa-map-pin %} {{ page.location.title }} <small>{{ page.location.subtitle }}</small></h6>
+    {% endif %}
+
+    {% if page.date_fished %}
+    <h6>{% icon fa-calendar %} Date fished: <small>{{ page.date_fished | date: "%B %d, %Y" }}</small></h6>
+    {% endif %}
+
+    {% if page.time %}
+    <h6>{% icon fa-clock-o %} Time fished: <small>{{ page.time.start }} - {{ page.time.finish }}</small></h6>
+    {% endif %}
+
+    {% if page.weather %}
+    <h6>{% icon fa-cloud %} Weather: <small>{{ page.weather | array_to_sentence_string }}</small></h6>
+    {% endif %}
+
+    {% if page.river %}
+    <h6>{% icon fa-tint %} Water: <small>{{ page.river.water | array_to_sentence_string }}, {{ page.river.flow }}</small></h6>
+    {% endif %}
+
+    {% if page.flies %}
+    <h6>{% icon fa-bug %} Flies used: <small>{{ page.flies | array_to_sentence_string }}</small></h6>
+    {% endif %}
+
+    {% if page.fish %}
+    <h6>{% icon fa-hand-paper-o %} Fish caught: <small>{{ page.fish | array_to_sentence_string }}</small></h6>
+    {% endif %}
+</div>

@@ -1,0 +1,12 @@
+---
+layout: archive
+title: "My Gear"
+permalink: /gear/
+author_profile: true
+---
+
+<div class="grid__wrapper">
+    {% for post in site.gear %}
+        {% include archive-single.html type="grid" %}
+    {% endfor %}
+</div>

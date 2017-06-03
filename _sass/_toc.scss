@@ -1,0 +1,22 @@
+.toc {
+    background: $flat-clouds;
+    color: $flat-concrete;
+    border: 1px solid $flat-concrete;
+
+    .nav__title {
+        background: $flat-concrete;
+    }
+
+    .toc__menu {
+        a {
+            color: $flat-concrete;
+            border-bottom: 1px solid $flat-concrete;
+
+            &:hover {
+                background: $flat-concrete;
+                color: $flat-clouds;
+                text-decoration: none;
+            }
+        }
+    }
+}

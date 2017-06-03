@@ -1,0 +1,16 @@
+<div class="page__scroll-to-top">
+    <a href="#" class="btn btn--inverse scroll-to-top">to top</a>
+</div>
+
+<div class="page__footer-links">
+    <h5>Other Good Reads</h5>
+    <ul>
+        {% for link in site.data.footer-links %}
+        <li><a target="_blank" href="{{ link.url }}">{{ link.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!--
+    Favicon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
+-->

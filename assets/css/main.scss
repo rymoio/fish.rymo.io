@@ -1,0 +1,31 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+/* Color Imports */
+@import "colors";
+
+/* Theme Variable Overrides */
+$serif: 'Rokkitt', serif;
+$text-color: $flat-midnight-blue;
+$primary-color: $flat-peter-river;
+$success-color: $flat-emerald;
+$warning-color: $flat-orange;
+$danger-color: $flat-alizarin;
+$info-color: $flat-amethyst;
+$paragraph-indent: false;
+
+/* Theme defaults */
+@import "minimal-mistakes";
+
+/* Theme overrides */
+@import "mixins";
+@import "reset";
+@import "masthead";
+@import "table";
+@import "post";
+@import "toc";
+@import "archive";
+@import "footer";

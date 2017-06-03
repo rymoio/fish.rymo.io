@@ -1,0 +1,14 @@
+{% if paginator.total_pages > 1 %}
+	<nav class="pagination">
+		{% if paginator.previous_page %}
+			<a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' | absolute_url }}" class="pagination--pager" title="Newer">Newer</a>
+		{% else %}
+			<a href="#" class="pagination--pager disabled">Newer</a>
+		{% endif %}
+		{% if paginator.next_page %}
+			<a href="{{ paginator.next_page_path | replace: ':num', index | prepend: site.baseurl | replace: '//', '/' | absolute_url }}" class="pagination--pager" title="Older">Older</a>
+		{% else %}
+			<a href="#" class="pagination--pager disabled">Older</a>
+		{% endif %}
+	</nav>
+{% endif %}

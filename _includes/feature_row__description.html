@@ -1,0 +1,11 @@
+<div class="feature__wrapper">
+	<div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
+		<div class="archive__item">
+			<div class="archive__item-body">
+				<div class="archive__item-excerpt">
+					{{ site.description | markdownify }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

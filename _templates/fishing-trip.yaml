@@ -1,0 +1,32 @@
+# Use this for new fishing trip posts
+---
+title: Fishing trip
+excerpt: 
+date_fished: 
+weather: []
+time:
+  start: 0:00 AM
+  finish: 0:00 PM
+location:
+  title: 
+  subtitle: 
+  latitude: 
+  longitude: 
+  zoom: 16.5
+logistics:
+  drive_time: 
+  directions: >
+    
+  parking: 
+  other: 
+river:
+  water: []
+  flow:  cfs
+flies: []
+fish: []
+header:
+  teaser: "/assets/images/trips/"
+tags: []
+layout: trips
+---
+$0

@@ -1,0 +1,17 @@
+.page__table {
+    margin-bottom: 2rem;
+}
+
+.table {
+    thead {
+        td {
+            text-align: center;
+        }
+    }
+    tbody {
+        td:first-child {
+            font-weight: bold;
+            text-align: right;
+        }
+    }
+}

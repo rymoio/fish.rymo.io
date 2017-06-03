@@ -1,0 +1,19 @@
+---
+layout: archive
+---
+
+{% if page.show_tags %}
+<div class="tag__list sticky">
+    <h3 class="archive__subtitle">Filter by tag</h3>    
+    {% assign sorted_tags = (site.tags | sort:0) %}
+    {% for tag in sorted_tags %}
+        <a href="/tag/{{ tag | first | slugify }}" class="btn">{{ tag | first }} <small>({{ tag | last | size }})</small></a>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% for post in paginator.posts %}
+  {% include archive-single.html %}
+{% endfor %}
+
+{% include paginator.html %}

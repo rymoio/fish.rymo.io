@@ -1,0 +1,22 @@
+---
+layout: archive
+permalink: /archive/category/
+title: "Posts by Category"
+author_profile: true
+---
+
+<div class="tag__list sticky">
+{% for category in site.categories %}
+    <a href="#{{ category | first | slugify }}" class="btn">{{ category | first }} <small>({{ category | last | size }})</small></a>
+{% endfor %}
+</div>
+
+{% include group-by-array collection=site.posts field="categories" %}
+
+{% for category in group_names %}
+  {% assign posts = group_items[forloop.index0] %}
+  <h2 id="{{ category | slugify }}" class="archive__subtitle">{% icon fa-folder-open %} {{ category }} <small><a href="/category/{{ category | slugify }}/" class="btn btn--inverse btn--small">view all</a></small></h2>
+  {% for post in posts %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endfor %}

@@ -1,0 +1,8 @@
+{% if page.logistics %}
+<div class="trip-logistics">
+    <h3>{% icon fa-car %} Drive time: {{ page.logistics.drive_time }}</h3>
+    <p>{{ page.logistics.directions }}</p>
+    <p><strong>Parking:</strong> {{ page.logistics.parking }}</p>
+    <p><strong>Other:</strong> {{ page.logistics.other }}</p>
+</div>
+{% endif %}

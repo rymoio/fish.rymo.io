@@ -1,0 +1,26 @@
+# Use this for fly tying posts
+---
+title: Fly tying post
+excerpt: 
+header:
+  teaser: "/assets/images/tying/"
+  video:
+    id: 
+    provider: vimeo
+materials:
+  hook: ""
+  bead: 
+  thread: 
+  tail: 
+  abdomen: 
+  rib: 
+  wing: 
+  wing_case: 
+  thorax: 
+  hackle: 
+  legs: 
+  head: 
+tags: []
+layout: tying
+---
+$0

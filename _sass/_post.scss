@@ -1,0 +1,11 @@
+.page {
+    .page__content {
+        p:first-child {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+
+            &:first-letter { @include first-letter-drop-case }
+        }
+    }
+}
