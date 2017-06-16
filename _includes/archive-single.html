@@ -11,7 +11,7 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
-  {% if teaser %}
+  {% if include.type != "grid" and teaser %}
   <div class="archive__item-teaser">
     <img src=
       {% if teaser contains "://" %}

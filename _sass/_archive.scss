@@ -21,6 +21,8 @@
     top: 0;
 
     &.sticky {
+        z-index: 1000;
+
         a {
             display: inline-block;
         }
