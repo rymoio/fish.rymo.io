@@ -26,7 +26,9 @@ flies: []
 fish: []
 header:
   teaser: "/assets/images/trips/"
+trip_stats: true
 tags: []
+category: fishing-trips
 layout: trips
 ---
 $0

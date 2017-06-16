@@ -1,5 +1,5 @@
 {% if post.header.teaser %}
-  {% capture teaser %}{{ post.header.teaser | replace: ' ', '' }}{% endcapture %}
+  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
 {% else %}
   {% assign teaser = site.teaser %}
 {% endif %}
@@ -10,25 +10,27 @@
   {% assign title = post.title %}
 {% endif %}
 
-{% if post.layout == "trips" %}
-  {% assign icon = "fa-car" %}
-{% elsif  post.layout == "tying" %}
-  {% assign icon = "fa-bug" %}
-{% elsif  post.layout == "gear" %}
-  {% assign icon = "fa-gear" %}
-{% else %}
-  {% assign icon = "fa-file-text" %}
-{% endif %}
-
 <div class="{{ include.type | default: "list" }}__item">
+  {% if teaser %}
+  <div class="archive__item-teaser">
+    <img src=
+      {% if teaser contains "://" %}
+        "{{ teaser }}"
+      {% else %}
+        "{{ teaser | absolute_url }}"
+      {% endif %}
+      alt="">
+  </div>
+  {% endif %}
+
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
         <img src=
           {% if teaser contains "://" %}
-            "{{ teaser | replace: ' ', '' }}"
+            "{{ teaser }}"
           {% else %}
-            "{{ teaser | absolute_url | replace: ' ', '' }}"
+            "{{ teaser | absolute_url }}"
           {% endif %}
           alt="">
       </div>
@@ -37,7 +39,7 @@
       {% if post.link %}
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | absolute_url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       {% else %}
-        <span class="text-primary"><i class="fa {{ icon }} fa-fw" aria-hidden="true"></i></span> <a href="{{ post.url | absolute_url }}" rel="permalink">{{ title }}</a>
+        <a href="{{ post.url | absolute_url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </h2>
     {% if post.read_time %}
