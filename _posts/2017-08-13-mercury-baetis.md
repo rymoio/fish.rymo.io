@@ -7,18 +7,14 @@ header:
     id: 88062918
     provider: vimeo
 materials:
-  hook: "#18-22 Tiemco 200R or #24 Dai-Riki 270"
+  hook: #18-22 Tiemco 200R or #24 Dai-Riki 270
   bead: Clear, silver-lined glass bead (extra small)
   thread: Light-cahill 8/0 Uni-Thread
   tail: Black saddle hackle fibers
   abdomen: BWO Superfine dubbing
-  rib: 
-  wing: 
   wing_case: Black Z-lon
   thorax: BWO Superfine dubbing
-  hackle: 
   legs: Black Z-lon
-  head: 
 tags: [mercury, baetis]
 category: fly-tying
 layout: tying
